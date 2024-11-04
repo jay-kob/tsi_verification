@@ -16,7 +16,22 @@ if uploaded_excel and uploaded_csv:
     df = df.loc[df.survey_id.notnull()]
 
     # Columns to subset and clean
-    benchmarks = df.columns[16:50]
+    # benchmarks = df.columns[16:50] might not be consistent
+
+    benchmarks = ['General Manager', 'Property Manager', 'CRM / TSM',
+       'Facilities Manager', 'Senior Facilities Manager',
+       'Management Staff (All)', 'Standard Management Team Staff',
+       'Service Requests', 'Fitout Management', 'Rental Billing Management',
+       'Management Team Average', 'Access Control Management',
+       'Air Conditioning', 'Food and Beverage Offering',
+       'Car Park Mgnt (Internal)', 'Car Park Mgnt (External)',
+       'Car Park Operator (Name)', 'Cleaning - Offices', 'Cleaning - Bathroom',
+       'Cleaning - Common', 'Cleaning - Average', 'Concierge',
+       'Emergency Management & Safety', 'End of Trip', 'Lifts', 'Presentation',
+       'Security', 'ESG Communication', 'Warden Training',
+       'Building Services Average', 'Property Performance', 'TSI Metro',
+       'Management Staff (All) Index', 'Standard Management Team Staff Index']
+    
     blacklist = set(['Car Park Operator (Name)', 'TSI Metro', 'Management Staff (All)', 'Standard Management Team Staff'])
     COLS = list(set(benchmarks) - blacklist)
 
